@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" id="manifest-placeholder">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
@@ -263,7 +264,7 @@
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    transition: 0.2s;
+    transition: 0.2s !important;
   }
   .icon-btn:hover { background: rgba(34, 197, 94, 0.1); }
 
@@ -375,7 +376,7 @@
   .msg.me { align-self: flex-end; background: var(--primary); color: #000; border-bottom-right-radius: 4px; box-shadow: 0 4px 12px var(--primary-glow); }
   .msg.them { align-self: flex-start; background: #1e293b; border-bottom-left-radius: 4px; }
 
-  .msg-sender { font-size: 0.7rem; opacity: 0.7; margin-bottom: 2px; display: block; }
+  .msg-sender { font-size: 0.7rem; opacity: 0.7; margin-bottom: 2px; display: block !important; }
 
   /* --- INPUT --- */
   .input-area {
@@ -717,11 +718,219 @@ body.light {
   color: #94a3b8;
   cursor: pointer;
 }
+.last-seen {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  
+}
+/* Instagram-style Splash */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background: #0b0f1a; /* Match your bg-dark */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+.splash-logo {
+  width: 80px;
+  height: 80px;
+  background: #22c55e; /* Match your primary */
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  animation: splashPulse 1.5s infinite ease-in-out;
+}
+@keyframes splashPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+.splash-footer {
+  position: absolute;
+  bottom: 50px;
+  color: #9ca3af;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
 
+
+/* Container for the profile item */
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: left;
+}
+
+.user-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* The Circular Avatar */
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #2b5278; /* Telegram-style blue */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Online green dot */
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border: 2px solid #0b0f1a;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+/* Text stacking */
+.user-meta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-status {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.user-status.online {
+  color: #22c55e; /* Telegram-style light blue for online */
+}
+
+
+.search-container {
+  padding: 8px 14px;
+  background: var(--bg-panel);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.search-box {
+  background: #242f3d; /* TG Search Dark Blue */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 2px solid transparent;
+  transition: border 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: var(--primary);
+  background: #17212b;
+}
+
+.search-icon {
+  font-size: 14px;
+  color: #708499;
+}
+
+#userSearch {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  width: 100%;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+#clearSearch {
+  background: none;
+  border: none;
+  color: #708499;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+/* No Results Placeholder */
+#noResults {
+  text-align: center;
+  color: #708499;
+  padding: 20px;
+  display: none;
+}
+
+.search-container {
+  position: sticky;
+  top: 0;
+  background: var(--bg-panel);
+  padding: 10px 15px;
+  z-index: 100;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #17212b; /* TG Search BG */
+  border-radius: 8px;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+}
+
+.search-box:focus-within {
+  border: 1px solid var(--primary);
+}
+
+#userSearch {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  outline: none;
+  padding: 5px;
+}
+
+#clearSearch {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
 </style>
 </head>
 <body>
-
+<div id="splash-screen">
+  <div class="splash-logo">💬</div>
+  <div class="splash-footer">FROM DELTA</div>
+</div>
 <div id="auth">
   <h2>💬 Delta Chat+</h2>
   <input id="email" placeholder="Email" type="email">
@@ -737,6 +946,16 @@ body.light {
     <span>💬 Delta+</span>
     <button onclick="addNote()" class="icon-btn">＋</button>
   </div>
+  <div class="search-container">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="userSearch" placeholder="Search" autocomplete="off">
+    <button id="clearSearch" style="display: none;">✕</button>
+  </div>
+</div>
+<div id="noResults" style="display: none; text-align: center; color: var(--text-muted); padding: 20px; font-size: 0.9rem;">
+  No users found
+</div>
 <!-- IG NOTES BAR -->
 <div id="notesBar" class="notes-bar"></div>
 
@@ -760,8 +979,11 @@ body.light {
     <header class="chat-header">
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
       <div style="flex:1">
+        
         <div id="headerTitle" style="font-weight:700;">Global Chat</div>
+        
         <div id="typingIndicator"></div>
+ <div id="lastSeen" class="last-seen"></div>
       </div>
       <button class="icon-btn" onclick="openSettings()">⚙️</button>
     </header>
@@ -781,7 +1003,7 @@ body.light {
       <input id="messageInput" placeholder="Type a message..." autocomplete="off">
       <div id="emojiPicker" class="emoji-picker-container"></div>
 
-      <button class="icon-btn" onclick="sendMessage()"></button>
+      <button class="icon-btn" onclick="sendMessage()"><i class="fa fa-send-o"></i></button>
     </div>
   </main>
 </div>
@@ -866,6 +1088,31 @@ auth.onAuthStateChanged(user => {
     document.getElementById('app').style.display = 'none';
     document.getElementById('auth').style.display = 'flex';
   }
+  // Add this inside the 'if(user)' block of your auth listener
+const userRef = db.ref(`users/${user.uid}`);
+const connectedRef = db.ref('.info/connected');
+
+connectedRef.on('value', (snap) => {
+  if (snap.val() === true) {
+    // When the user closes the app/tab
+    userRef.onDisconnect().update({
+      status: 'offline',
+      lastSeen: firebase.database.ServerValue.TIMESTAMP
+    });
+    // When the user opens the app
+    userRef.update({
+      status: 'online',
+      lastSeen: firebase.database.ServerValue.TIMESTAMP
+    });
+  }
+});
+
+// Hide Splash Screen after 1.5 seconds
+setTimeout(() => {
+  const splash = document.getElementById('splash-screen');
+  splash.style.opacity = '0';
+  setTimeout(() => splash.style.visibility = 'hidden', 500);
+}, 1500);
 loadNotes();
 });
 
@@ -881,6 +1128,19 @@ function authAction(type) {
   } else {
     auth.signInWithEmailAndPassword(email, pass).catch(e => alert(e.message));
   }
+}
+
+function formatLastSeen(timestamp) {
+  if (!timestamp) return 'long ago';
+  const diff = Date.now() - timestamp;
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+
+  if (seconds < 60) return 'Just now';
+  if (minutes < 60) return `${minutes}m ago`;
+  if (hours < 24) return `${hours}h ago`;
+  return new Date(timestamp).toLocaleDateString();
 }
 
 function logout() {
@@ -905,6 +1165,27 @@ function startPrivateChat(targetUid, targetName) {
   isPrivate = true;
   document.getElementById('headerTitle').innerText = `🔒 ${targetName}`;
   resetChatUI();
+  db.ref(`users/${uid}`).on('value', snap => {
+  const u = snap.val();
+  if (!u) return;
+
+  const el = document.getElementById('lastSeen');
+  el.textContent =
+    u.status === 'online'
+      ? 'Active now'
+      : formatLastSeen(u.lastSeen);
+});
+// Inside your switchRoom or startPrivateChat function
+const subtitle = document.getElementById('headerSubtitle'); // Ensure this ID exists in your HTML header
+
+db.ref(`users/${targetUid}`).on('value', (snap) => {
+  const data = snap.val();
+  if (data.status === 'online') {
+    subtitle.innerHTML = `<span style="color:#22c55e">● Online</span>`;
+  } else {
+    subtitle.innerText = `Last seen ${formatLastSeen(data.lastSeen)}`;
+  }
+});
 }
 
 function resetChatUI() {
@@ -914,33 +1195,36 @@ function resetChatUI() {
   loadMessages();
 }
 
+
 function loadUsers() {
   db.ref('users').on('value', snap => {
     const list = document.getElementById('userList');
-    list.innerHTML = '';
+    list.innerHTML = ''; // Clear current list
     
     snap.forEach(child => {
-      if (child.key === currentUser.uid) return;
-
+      if (child.key === currentUser.uid) return; // Skip self
+      
       const u = child.val();
-      const btn = document.createElement('button');
-      btn.className = 'btn-item';
-
+      const initial = u.username ? u.username[0].toUpperCase() : '?';
       const isOnline = u.status === 'online';
-      const initials = u.username ? u.username[0].toUpperCase() : '?';
-
+      
+      const btn = document.createElement('button');
+      btn.className = 'user-item';
+      
+      // Calculate status display
+      let statusText = isOnline ? 'online' : formatLastSeen(u.lastSeen);
+      
       btn.innerHTML = `
-        <div class="avatar-wrap">
-          ${
-            u.photo
-              ? `<img src="${u.photo}" class="avatar">`
-              : `<div class="avatar">${initials}</div>`
-          }
-          <div class="status-dot ${isOnline ? 'online' : ''}"></div>
+        <div class="avatar">
+          ${initial}
+          ${isOnline ? '<div class="status-dot"></div>' : ''}
         </div>
-        <span>${u.username}</span>
+        <div class="user-meta">
+          <span class="user-name">${u.username}</span>
+          <span class="user-status ${isOnline ? 'online' : ''}">${statusText}</span>
+        </div>
       `;
-
+      
       btn.onclick = () => startPrivateChat(child.key, u.username);
       list.appendChild(btn);
     });
@@ -1339,11 +1623,67 @@ if (u.status === 'online' && uid !== currentUser.uid) {
   });
 }
 
+const userRef = db.ref(`users/${user.uid}`);
 
+userRef.update({
+  status: 'online',
+  lastSeen: firebase.database.ServerValue.TIMESTAMP
+});
+
+window.addEventListener('beforeunload', () => {
+  userRef.update({
+    status: 'offline',
+    lastSeen: firebase.database.ServerValue.TIMESTAMP
+  });
+});
+function formatLastSeen(ts) {
+  if (!ts) return 'last seen long ago';
+  
+  const diff = Date.now() - ts;
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+
+  if (seconds < 60) return 'last seen just now';
+  if (minutes < 60) return `last seen ${minutes}m ago`;
+  if (hours < 24) return `last seen ${hours}h ago`;
+  
+  return `last seen ${new Date(ts).toLocaleDateString()}`;
+}
+const searchInput = document.getElementById('userSearch');
+const clearBtn = document.getElementById('clearSearch');
+
+searchInput.addEventListener('input', function(e) {
+  const term = e.target.value.toLowerCase().trim();
+  const userList = document.getElementById('userList');
+  const userItems = userList.querySelectorAll('.user-item');
+  const noResults = document.getElementById('noResults');
+  
+  // Toggle Clear Button (X)
+  clearBtn.style.display = term.length > 0 ? 'block' : 'none';
+
+  let matchFound = false;
+
+  userItems.forEach(item => {
+    const name = item.querySelector('.user-name-text').innerText.toLowerCase();
+    if (name.includes(term)) {
+      item.style.display = 'flex';
+      matchFound = true;
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  // Show "No Results" if absolutely nothing matches the database list
+  noResults.style.display = (!matchFound && term.length > 0) ? 'block' : 'none';
+});
+
+// Clear button logic
+clearBtn.onclick = () => {
+  searchInput.value = '';
+  searchInput.dispatchEvent(new Event('input'));
+  searchInput.focus();
+};
 </script>
 </body>
-
 </html>
-
-
-
