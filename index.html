@@ -22,28 +22,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 <!-- Inline Web App Manifest for PWA (makes it installable/downloadable on all devices) -->
-<link rel="manifest" href='data:application/manifest+json,{
-  "name": "Delta Chat+",
-  "short_name": "Delta+",
-  "description": "Epic chat application",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "icon1.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon1.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}'>
+<link rel="manifest" href="manifest.json">
 
 <style>
   :root {
@@ -1535,6 +1514,16 @@ if ('serviceWorker' in navigator) {
       }).catch((err) => {
         console.error('Service Worker registration failed:', err);
       });
+  });
+}
+
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log("Service Worker registered"))
+      .catch(err => console.log("Service Worker failed", err));
   });
 }
 </script>
