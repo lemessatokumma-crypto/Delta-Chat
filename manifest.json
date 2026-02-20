@@ -1,20 +1,20 @@
 {
   "name": "Delta Chat+",
   "short_name": "Delta+",
-  "description": "Epic chat application",
-  "start_url": "/",
+  "start_url": "/Delta-Chat/",
+  "scope": "/Delta-Chat/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "icon1.png",
+      "src": "/Delta-Chat/icon1.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon1.png",
+      "src": "/Delta-Chat/icon1.png",
       "sizes": "512x512",
       "type": "image/png"
     }
