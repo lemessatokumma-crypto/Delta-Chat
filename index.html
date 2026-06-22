@@ -761,7 +761,7 @@
         const appSettings = { enable3D: true, enableSFX: true, enableVoice: true };
         if(localStorage.getItem('velocity_settings')) Object.assign(appSettings, JSON.parse(localStorage.getItem('velocity_settings')));
 
-        const GROQ_API_KEY = "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";
+        const GROQ_API_KEY = "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";
 
         // ==========================================
         // 2. SVG AVATAR SYSTEM (FASHIONABLE CLOTHES)
@@ -1513,7 +1513,7 @@
         }
 
         function startArenaTimer(){
-            clearInterval(appState.matchTimerIntervalRef); let t=15.0;
+            clearInterval(appState.matchTimerIntervalRef); let t=30.0;
             const dt = document.getElementById("timer-text-digits");
             appState.matchTimerIntervalRef = setInterval(()=>{
                 t-=0.1; dt.innerText=Math.max(0,t).toFixed(1)+"s";
